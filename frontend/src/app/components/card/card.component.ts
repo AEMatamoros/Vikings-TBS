@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,13 +7,13 @@ import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   @Input() viking;
-  @Output() selectPlayer= new EventEmitter();
+  @Output() selectPlayer = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  select(player){
-    this.selectPlayer.emit(player)
+  select(player): void {
+    this.selectPlayer.emit(player);
   }
 }

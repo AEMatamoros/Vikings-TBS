@@ -37,7 +37,7 @@ router.post('/',async (req,res)=>{
     const result = await pool.query(`
         INSERT INTO players(nombre, descripcion, ataque, defensa, estrellas, imagen,vida) 
         VALUES ("${nombre}","${descripcion}",${ataque},${defensa},${estrellas},"${imagen}",${vida})
-     `);
+    `);
 
     res.send(result);
 })

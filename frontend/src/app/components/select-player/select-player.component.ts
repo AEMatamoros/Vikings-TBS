@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {AppServiceService} from '../../services/app-service.service'
+import { AppServiceService } from '../../services/app-service.service';
 @Component({
   selector: 'app-select-player',
   templateUrl: './select-player.component.html',
@@ -8,31 +8,32 @@ import {AppServiceService} from '../../services/app-service.service'
 })
 export class SelectPlayerComponent implements OnInit {
 
-  constructor(private service:AppServiceService) { }
+  p1 = { nombre: 'Jugador 1 sin seleccionar' };
+  p2 = { nombre: 'Jugador 2 sin seleccionar' };
+  counter = 0;
   vikings: any;
+
+  constructor(private service: AppServiceService) { }
   ngOnInit(): void {
-    this.getPlayers()
+    this.getPlayers();
   }
-  p1:any={nombre:"Jugador 1 sin seleccionar"}
-  p2:any={nombre:"Jugador 2 sin seleccionar"}
-  counter =0;
-  selectPlayer(selected){
-    console.log(selected)
-    if(this.p1!=selected && this.p2!=selected){
-      if(this.counter==0){
-        this.p1 = selected
+
+  selectPlayer(selected): void {
+    if (this.p1 !== selected && this.p2 !== selected) {
+      if (this.counter === 0) {
+        this.p1 = selected;
         this.counter++;
-      }else{
+      } else {
         this.p2 = selected;
-        this.counter=0
+        this.counter = 0;
       }
     }
   }
-  getPlayers(){
-    this.service.getPlayers().subscribe(res=>{
-      this.vikings= res
-      console.log(this.vikings)
-    })
+
+  getPlayers(): void {
+    this.service.getPlayers().subscribe(res => {
+      this.vikings = res;
+    });
   }
-  
+
 }

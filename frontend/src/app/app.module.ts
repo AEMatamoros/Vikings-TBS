@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
-//Router
+ // Router
 const routes: Routes = [
   { path: '', component: CreatePlayerComponent },
   { path: 'select', component: SelectPlayerComponent },

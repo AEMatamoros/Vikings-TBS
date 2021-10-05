@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class AppServiceService {
-  APP_URL = "http://localhost:8000/players";
-  
+  APP_URL = 'http://localhost:8000/players';
+
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
+      'Content-Type': 'application/json',
     })
   };
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  uploadImg(img){
-    return this.http.post<any>(this.APP_URL+'/upload',img)
+  uploadImg(img): any {
+    return this.http.post<any>(this.APP_URL + '/upload', img);
   }
-  createPlayer(playerData){
-    return this.http.post<any>(this.APP_URL,playerData,this.httpOptions)
+  createPlayer(playerData): any {
+    return this.http.post<any>(this.APP_URL, playerData, this.httpOptions);
   }
-  getPlayers(){
+  getPlayers(): any {
     return this.http.get<any>(this.APP_URL);
   }
-  getPlayer(id){
-    return this.http.get<any>(this.APP_URL+'/'+id);
+  getPlayer(id): any {
+    return this.http.get<any>(this.APP_URL + '/' + id);
   }
-  deletePlayer(id){
-    return this.http.delete<any>(this.APP_URL+'/'+id)
+  deletePlayer(id): any {
+    return this.http.delete<any>(this.APP_URL + '/' + id);
   }
-  winCon(id, estrellas){
-    return this.http.put<any>(this.APP_URL+'/win/'+id,{"estrellas":estrellas})
+  winCon(id, estrellas): any {
+    return this.http.put<any>(this.APP_URL + '/win/' + id, { estrellas });
   }
 }
