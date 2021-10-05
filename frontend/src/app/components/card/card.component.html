@@ -1,0 +1,14 @@
+<div class="col-md-3 p-1" (click)="select(viking)">
+    <div class="card " style="width: 16rem;">
+    <strong class="text-center"><p>{{viking.nombre}} 
+            <i class="fas fa-star text-warning"></i>{{viking.estrellas}}
+    </p></strong>
+    <img class="card-img-top" src="http://localhost:8000/{{viking.imagen}}" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{viking.descripcion}}</p>
+      <p><i class="fas fa-fire-alt text-danger"></i>:{{viking.ataque}}</p>
+      <p><i class="fas fa-shield-alt text-primary"></i>:{{viking.defensa}}</p>
+      <p><i class="fas fa-heartbeat text-success"></i>:{{viking.vida}}</p>
+    </div>
+  </div>
+</div>

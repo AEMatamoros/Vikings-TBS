@@ -1,0 +1,15 @@
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin: auto;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+form{
+    width: 100%;
+    padding: 10px;
+    
+}

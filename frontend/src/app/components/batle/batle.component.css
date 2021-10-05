@@ -1,0 +1,7 @@
+.card-img-top{
+    height: 169px;
+    object-fit:cover;
+}
+.over-action{
+    overflow-y: scroll;
+}

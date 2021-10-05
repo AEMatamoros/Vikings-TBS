@@ -1,0 +1,46 @@
+<ng-container *ngIf="p1 && p2">
+<div class="container">
+    <div class="row pt-5">
+        <h2 class="col-md-12">Batalla</h2>
+        <div class="col-md-4 p-2 ">
+            <div class="card " style="width: 18rem;">
+                <strong class="text-center"><p>{{p1.nombre}} {{p1.estrellas}}</p></strong>
+                <img class="card-img-top" src="http://localhost:8000/{{p1.imagen}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{p1.descripcion}}</p>
+                  <p><i class="fas fa-fire-alt text-danger"></i>:{{p1.ataque}}</p>
+                  <p><i class="fas fa-shield-alt text-primary"></i>:{{p1.defensa}}</p>
+                  <p><i class="fas fa-heartbeat text-success"></i>:{{p1.vida}}</p>
+                  <button class="btn btn-danger form-control" (click)="atacar(p1);" [disabled]="turn==2 || turn==0">Atacar</button>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 p-2 ">
+            <div class="card " style="width: 18rem;">
+                <strong class="text-center"><p>{{p2.nombre}} {{p2.estrellas}}</p></strong>
+                <img class="card-img-top" src="http://localhost:8000/{{p2.imagen}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{p2.descripcion}}</p>
+                  <p><i class="fas fa-fire-alt text-danger"></i>:{{p2.ataque}}</p>
+                  <p><i class="fas fa-shield-alt text-primary"></i>:{{p2.defensa}}</p>
+                  <p><i class="fas fa-heartbeat text-success"></i>:{{p2.vida}}</p>
+                  <button class="btn btn-danger form-control" (click)="atacar(p2);" [disabled]="turn==1 || turn==0">Atacar</button>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 p-2 ">
+            <div class="card over-action" style="width: 18rem; height: 382.85px;">
+                <h3 class="text-center">Acciones</h3>
+                <div class="log"  *ngIf='log'>
+                    <strong *ngFor="let action of log"><p>{{action}}</p></strong>
+                </div>
+                
+            </div>
+            <div class="card over-action" style="width: 18rem;">
+                <a routerLink='/select' class="btn form-control text-center btn-primary">Seleccionar peleadores</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
