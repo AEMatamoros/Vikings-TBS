@@ -2,32 +2,51 @@
     <div class="mt-4 form-wrapper text-center pt-1">
         <h2 class="text-primary">Crea un personaje</h2>
         <!-- {{player   | json}} -->
-        <form enctype="multipart/form-data"  name = createForm>
+        <form enctype="multipart/form-data"  name ='createForm' #form="ngForm">
             <div class="form-group">
-                <label for="">Nombre</label>
-                <input type="text" class="form-control"  name="nombre" [(ngModel)]="player.nombre" #name="ngModel" required>
-                
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control"  [(ngModel)]="player.nombre" #nombre="ngModel" name="nombre" placeholder="Jhon"required>
+                <div [hidden]="nombre.valid || nombre.pristine"
+                    class="alert alert-danger">
+                    El nombre es obligatorio
+                </div>
             </div>
             <div class="form-group">
-                <label for="">Descripcion</label>
-                <input type="text" class="form-control" [(ngModel)]="player.descripcion" name="descripcion">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" class="form-control" [(ngModel)]="player.descripcion" #descripcion="ngModel"name="descripcion" placeholder="Descripcion" required>
+                <div [hidden]="descripcion.valid || descripcion.pristine"
+                    class="alert alert-danger">
+                    La descripcion es obligatoria
+                </div>
             </div>
             <div class="form-group">
-                <label for="">Ataque</label>
-                <input type="number" class="form-control"  [(ngModel)]="player.ataque" name="ataque" min="1">
+                <label for="ataque">Ataque</label>
+                <input type="number" class="form-control"  [(ngModel)]="player.ataque" #ataque="ngModel"name="ataque" min="1" required>
+                <div [hidden]="ataque.valid || ataque.pristine"
+                    class="alert alert-danger">
+                    Debe asignar un ataque valido
+                </div>
             </div>
             <div class="form-group">
-                <label for="">Defensa</label>
-                <input type="number" class="form-control" [(ngModel)]="player.defensa" name="defensa" min="1">
+                <label for="defensa">Defensa</label>
+                <input type="number" class="form-control" [(ngModel)]="player.defensa" #defensa="ngModel"name="defensa" min="1" required>
+                <div [hidden]="defensa.valid || defensa.pristine"
+                    class="alert alert-danger">
+                    Debe asignar una defensa valida
+                </div>
             </div>
             <div class="form-group">
-                <label for="">Vida</label>
-                <input type="number" class="form-control" [(ngModel)]="player.vida" name="vida" min="10">
+                <label for="vida">Vida</label>
+                <input type="number" class="form-control" [(ngModel)]="player.vida" #vida="ngModel"name="vida" min="10" required>
+                <div [hidden]="vida.valid || vida.pristine"
+                    class="alert alert-danger">
+                    Debe asignar una vida valida
+                </div>
             </div>
             <div class="form-group">
-                <input type="file" class="form-control-file"   name="file" (change)="selectImage($event)">           
+                <input type="file" class="form-control-file"   name="file"  (change)="selectImage($event)" required>           
             </div>
-            <button class="btn btn-primary form-control" (click)="createPlayer()">Crear Vikingo</button>
+            <button class="btn btn-primary form-control" (click)="createPlayer()" [disabled]='!form.valid && !file'>Crear Vikingo</button>
         </form>
         <a routerLink = "select">Seleccionar personajes</a>
     </div>
